@@ -4,6 +4,7 @@
   --pink: #f47b6e;
   --light-blue: #effbfe;
   --blue: #ace6ec;
+  --green: #49d61b;
 }
 
 html,
@@ -142,4 +143,8 @@ a:hover {
 }
 a:active {
   color: var(--light-blue);
+}
+
+.order-success {
+  color: var(--green);
 }

@@ -4,6 +4,7 @@ import CartItem from "../components/CartItem";
 
 function Cart() {
   const [buttonText, setButtonText] = useState("Place Order");
+  const [order, setOrder] = useState();
   const { cartItems, emptyCart } = useContext(Context);
   const total = 5.99 * cartItems.length;
   const totalCostDisplay = total.toLocaleString("en-US", {
@@ -20,6 +21,7 @@ function Cart() {
     setTimeout(() => {
       console.log("Order Placed");
       setButtonText("Place Order");
+      setOrder("Order Placed. You'll be notified when it shipped!");
       emptyCart();
     }, 3000);
   }
@@ -34,7 +36,10 @@ function Cart() {
           <button onClick={placeOrder}>{buttonText}</button>
         </div>
       ) : (
-        <p>You have no items in your cart!</p>
+        <div>
+          <p className="order-success">{order}</p>
+          <p>You have no items in your cart!</p>
+        </div>
       )}
     </main>
   );
